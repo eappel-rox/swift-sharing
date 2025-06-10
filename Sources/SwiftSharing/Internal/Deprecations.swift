@@ -10,7 +10,7 @@
   @available(tvOS, deprecated: 9999, message: "This will be removed in Sharing 3.")
   @available(watchOS, deprecated: 9999, message: "This will be removed in Sharing 3.")
   extension Data {
-    package static let stub = Self("co.pointfree.Sharing.FileStorage.stub".utf8)
+    package static let stub = Self("co.pointfree.SwiftSharing.FileStorage.stub".utf8)
   }
 #endif
 

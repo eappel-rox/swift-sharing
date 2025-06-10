@@ -181,7 +181,7 @@ The documentation for releases and `main` are available here:
 ## Demos
 
 This repo comes with _lots_ of examples to demonstrate how to solve common and complex problems with
-Sharing. Check out [this](./Examples) directory to see them all, including:
+SwiftSharing. Check out [this](./Examples) directory to see them all, including:
 
   * [Case Studies](./Examples/CaseStudies):
     A number of case studies demonstrating the built-in features of the library.

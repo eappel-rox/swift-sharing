@@ -50,7 +50,7 @@ let package = Package(
         "SwiftSharing",
         .product(name: "DependenciesTestSupport", package: "swift-dependencies"),
       ],
-      exclude: ["Sharing.xctestplan"]
+      exclude: ["SwiftSharing.xctestplan"]
     ),
     .target(
       name: "Sharing1",

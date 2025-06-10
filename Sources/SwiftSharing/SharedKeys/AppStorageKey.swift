@@ -549,9 +549,9 @@
       //     file-based suites. Go back to using temporary directory always when we drop iOS 16
       //     support.
       if #unavailable(iOS 17, macOS 14, tvOS 17, watchOS 10, visionOS 1) {
-        suiteName = "co.pointfree.Sharing.\(UUID().uuidString)"
+        suiteName = "co.pointfree.SwiftSharing.\(UUID().uuidString)"
       } else {
-        suiteName = "\(NSTemporaryDirectory())co.pointfree.Sharing.\(UUID().uuidString)"
+        suiteName = "\(NSTemporaryDirectory())co.pointfree.SwiftSharing.\(UUID().uuidString)"
       }
       return UserDefaults(suiteName: suiteName)!
     }

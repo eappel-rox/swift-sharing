@@ -38,7 +38,7 @@
     /// ```
     @propertyWrapper
     public struct Shared: DynamicProperty {
-      @SwiftUI.State private var shared: Sharing.Shared<Value>
+      @SwiftUI.State private var shared: SwiftSharing.Shared<Value>
 
       @_documentation(visibility: private)
       public var wrappedValue: Value {
@@ -46,7 +46,7 @@
       }
 
       @_documentation(visibility: private)
-      public var projectedValue: Sharing.Shared<Value> {
+      public var projectedValue: SwiftSharing.Shared<Value> {
         get { shared }
         nonmutating set { shared.projectedValue = newValue }
       }
@@ -54,17 +54,17 @@
       #if compiler(>=6)
         @_documentation(visibility: private)
         public init(value: sending Value) {
-          shared = Sharing.Shared(value: value)
+          shared = SwiftSharing.Shared(value: value)
         }
       #else
         @_documentation(visibility: private)
         public init(value: Value) {
-          shared = Sharing.Shared(value: value)
+          shared = SwiftSharing.Shared(value: value)
         }
       #endif
 
       @_documentation(visibility: private)
-      public init(projectedValue: Sharing.Shared<Value>) {
+      public init(projectedValue: SwiftSharing.Shared<Value>) {
         shared = projectedValue
       }
 
@@ -73,18 +73,18 @@
         wrappedValue: @autoclosure () -> Value,
         _ key: some SharedKey<Value>
       ) {
-        shared = Sharing.Shared(wrappedValue: wrappedValue(), key)
+        shared = SwiftSharing.Shared(wrappedValue: wrappedValue(), key)
       }
 
       @_disfavoredOverload
       @_documentation(visibility: private)
       public init<Wrapped>(_ key: some SharedKey<Value>) where Value == Wrapped? {
-        shared = Sharing.Shared(key)
+        shared = SwiftSharing.Shared(key)
       }
 
       @_documentation(visibility: private)
       public init(_ key: (some SharedKey<Value>).Default) {
-        shared = Sharing.Shared(wrappedValue: key.initialValue, key)
+        shared = SwiftSharing.Shared(wrappedValue: key.initialValue, key)
       }
 
       @_disfavoredOverload
@@ -93,12 +93,12 @@
         wrappedValue: @autoclosure () -> Value,
         _ key: (some SharedKey<Value>).Default
       ) {
-        shared = Sharing.Shared(wrappedValue: wrappedValue(), key)
+        shared = SwiftSharing.Shared(wrappedValue: wrappedValue(), key)
       }
 
       @_documentation(visibility: private)
       public init(require key: some SharedKey<Value>) async throws {
-        shared = try await Sharing.Shared(require: key)
+        shared = try await SwiftSharing.Shared(require: key)
       }
 
       @_documentation(visibility: private)
@@ -145,7 +145,7 @@
     /// ```
     @propertyWrapper
     public struct SharedReader: DynamicProperty {
-      @SwiftUI.State private var shared: Sharing.SharedReader<Value>
+      @SwiftUI.State private var shared: SwiftSharing.SharedReader<Value>
 
       @_documentation(visibility: private)
       public var wrappedValue: Value {
@@ -153,7 +153,7 @@
       }
 
       @_documentation(visibility: private)
-      public var projectedValue: Sharing.SharedReader<Value> {
+      public var projectedValue: SwiftSharing.SharedReader<Value> {
         get { shared }
         nonmutating set { shared.projectedValue = newValue }
       }
@@ -161,17 +161,17 @@
       #if compiler(>=6)
         @_documentation(visibility: private)
         public init(value: sending Value) {
-          shared = Sharing.SharedReader(value: value)
+          shared = SwiftSharing.SharedReader(value: value)
         }
       #else
         @_documentation(visibility: private)
         public init(value: Value) {
-          shared = Sharing.SharedReader(value: value)
+          shared = SwiftSharing.SharedReader(value: value)
         }
       #endif
 
       @_documentation(visibility: private)
-      public init(projectedValue: Sharing.SharedReader<Value>) {
+      public init(projectedValue: SwiftSharing.SharedReader<Value>) {
         shared = projectedValue
       }
 
@@ -180,7 +180,7 @@
         wrappedValue: @autoclosure () -> Value,
         _ key: some SharedReaderKey<Value>
       ) {
-        shared = Sharing.SharedReader(wrappedValue: wrappedValue(), key)
+        shared = SwiftSharing.SharedReader(wrappedValue: wrappedValue(), key)
       }
 
       @_disfavoredOverload
@@ -189,29 +189,29 @@
         wrappedValue: @autoclosure () -> Value,
         _ key: some SharedKey<Value>
       ) {
-        shared = Sharing.SharedReader(wrappedValue: wrappedValue(), key)
+        shared = SwiftSharing.SharedReader(wrappedValue: wrappedValue(), key)
       }
 
       @_disfavoredOverload
       public init<Wrapped>(_ key: some SharedReaderKey<Value>) where Value == Wrapped? {
-        shared = Sharing.SharedReader(key)
+        shared = SwiftSharing.SharedReader(key)
       }
 
       @_disfavoredOverload
       @_documentation(visibility: private)
       public init<Wrapped>(_ key: some SharedKey<Value>) where Value == Wrapped? {
-        shared = Sharing.SharedReader(key)
+        shared = SwiftSharing.SharedReader(key)
       }
 
       @_documentation(visibility: private)
       public init(_ key: (some SharedReaderKey<Value>).Default) {
-        shared = Sharing.SharedReader(key)
+        shared = SwiftSharing.SharedReader(key)
       }
 
       @_disfavoredOverload
       @_documentation(visibility: private)
       public init(_ key: (some SharedKey<Value>).Default) {
-        shared = Sharing.SharedReader(key)
+        shared = SwiftSharing.SharedReader(key)
       }
 
       @_disfavoredOverload
@@ -219,7 +219,7 @@
         wrappedValue: @autoclosure () -> Value,
         _ key: (some SharedReaderKey<Value>).Default
       ) {
-        shared = Sharing.SharedReader(wrappedValue: wrappedValue(), key)
+        shared = SwiftSharing.SharedReader(wrappedValue: wrappedValue(), key)
       }
 
       @_disfavoredOverload
@@ -228,18 +228,18 @@
         wrappedValue: @autoclosure () -> Value,
         _ key: (some SharedKey<Value>).Default
       ) {
-        shared = Sharing.SharedReader(wrappedValue: wrappedValue(), key)
+        shared = SwiftSharing.SharedReader(wrappedValue: wrappedValue(), key)
       }
 
       @_documentation(visibility: private)
       public init(require key: some SharedReaderKey<Value>) async throws {
-        shared = try await Sharing.SharedReader(require: key)
+        shared = try await SwiftSharing.SharedReader(require: key)
       }
 
       @_disfavoredOverload
       @_documentation(visibility: private)
       public init(require key: some SharedKey<Value>) async throws {
-        shared = try await Sharing.SharedReader(require: key)
+        shared = try await SwiftSharing.SharedReader(require: key)
       }
 
       @_documentation(visibility: private)

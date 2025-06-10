@@ -1,6 +1,6 @@
 # Migration guides
 
-Learn how to upgrade your application to the newest version of Sharing.
+Learn how to upgrade your application to the newest version of SwiftSharing.
 
 ## Overview
 
