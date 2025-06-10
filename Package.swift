@@ -13,7 +13,7 @@ let package = Package(
   products: [
     .library(
       name: "SwiftSharing",
-      targets: ["Sharing"]
+      targets: ["SwiftSharing"]
     )
   ],
   dependencies: [
@@ -28,7 +28,7 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "Sharing",
+      name: "SwiftSharing",
       dependencies: [
         "Sharing1",
         "Sharing2",
