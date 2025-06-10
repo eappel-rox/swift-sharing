@@ -12,7 +12,7 @@ let package = Package(
   ],
   products: [
     .library(
-      name: "Sharing",
+      name: "SwiftSharing",
       targets: ["Sharing"]
     )
   ],
